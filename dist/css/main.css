@@ -35,6 +35,10 @@ h2 {
 
 .contact-form{
   max-width: 300px;
+  margin: 0 auto;
+  background: #ccc;
+  border-radius: 6px;
+  padding: 2rem 1.5rem;
 }
 
 .contact-form label{
@@ -50,12 +54,20 @@ h2 {
   padding: .5rem .25rem;
   max-width: 100%;
   margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
 .contact-form input[type="submit"]{
   font-size: 2rem;
   padding: .5rem 1rem;
 }
+
+@media only screen and (max-width: 420px) {
+  .contact-form input[type="submit"]{
+    display: block;
+    width: 100%;
+    }
+  }
 
 header {
   height: 50px;
