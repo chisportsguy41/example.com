@@ -11,6 +11,30 @@ body {
 * {
   font-family: 'Open Sans', sans-serif; }
 
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.core {
+  text-align: center;
+  font-style: italic;
+  font-style: bold;
+}
+
+.links {
+  text-align: center;
+}
+
+.cert {
+  font-style: italic;
+}
+
+
+
 header {
   height: 50px;
   background: #000;
