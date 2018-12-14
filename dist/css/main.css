@@ -38,6 +38,30 @@ h2 {
   width: 25%;
 }
 
+
+.comps {
+  list-style-type: circle;
+}
+
+th {
+  text-align: left;
+  font-weight: normal;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.float-left{
+  float: left;
+}
+
+.float-right{
+  float: right;
+}
+
 .contact-form{
   max-width: 300px;
   margin: 0 auto;
