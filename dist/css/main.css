@@ -33,7 +33,8 @@ h2 {
   width: 25%; }
 
 .comps {
-  list-style-type: circle; }
+  list-style-type: circle;
+  font-size: small; }
 
 th {
   text-align: left;
