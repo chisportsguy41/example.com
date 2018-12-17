@@ -96,15 +96,15 @@ main {
 }
 
 @media only screen and (max-width: 960px) {
-    header {
-        position: relative;
-    }
-    nav {
-        position: absolute;
-        display: none;
-        background: #000;
-        top: 50px;
-        left: 0;
-        right: 0;
-    }
+header {
+      position: relative;
+  }
+  nav {
+    position: absolute;
+    display: none;
+    background: #000;
+    top: 50px;
+    left: 0;
+    right: 0;
+  }
 }

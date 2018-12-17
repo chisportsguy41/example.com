@@ -11,98 +11,11 @@ body {
 * {
   font-family: 'Open Sans', sans-serif; }
 
-h1 {
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-}
-
-.core {
-  text-align: center;
-  font-style: italic;
-  font-style: bold;
-}
-
-.links {
-  text-align: center;
-}
-
-.cert {
-  font-style: italic;
-}
-
-.competencies {
-  display: inline-block;
-  width: 25%;
-}
-
-
-.comps {
-  list-style-type: circle;
-}
-
-th {
-  text-align: left;
-  font-weight: normal;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.float-left{
-  float: left;
-}
-
-.float-right{
-  float: right;
-}
-
-.contact-form{
-  max-width: 300px;
-  margin: 0 auto;
-  background: #ccc;
-  border-radius: 6px;
-  padding: 2rem 1.5rem;
-}
-
-.contact-form label{
-  display: block;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea{
-  font-size: 2rem;
-  padding: .5rem .25rem;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  box-sizing: border-box;
-}
-
-.contact-form input[type="submit"]{
-  font-size: 2rem;
-  padding: .5rem 1rem;
-}
-
-@media only screen and (max-width: 420px) {
-  .contact-form input[type="submit"]{
-    display: block;
-    width: 100%;
-    }
-  }
-
 header {
   height: 50px;
   background: #000;
   color: #fff;
-  padding: 0 .5rem 0 1em; }
+  padding: 0 .5rm 0 1em; }
 
 header .logo {
   line-height: 50px;
