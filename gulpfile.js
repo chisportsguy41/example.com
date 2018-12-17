@@ -30,5 +30,5 @@ gulp.task('build-css', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch('./public/src/scss/**/*.scss', ['build-css']);
+  gulp.watch('./src/scss/**/*.scss', ['build-css']);
 });
