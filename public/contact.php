@@ -1,3 +1,12 @@
+<?php
+$data = $_POST;
+
+foreach($data as $key => $value){
+  echo "{$key} = {$value}<br>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,31 +23,29 @@
     <a id="toggleMenu">Menu</a>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="resume.php">Resume</a></li>
+        <li><a href="contact.php">Contact</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <h1>Send me an email!</h1>
-    <form class="contact-form" action="https://formspree.io/cdn841@gmail.com" method="POST">
+    <form class="contact-form" action="contact.php" method="POST">
       <div>
         <label for="name">Name</label>
         <input id="name" type="text" name="name">
       </div>
       <div>
         <label for="email">Email</label>
-        <input id="email" type="text" name="_replyto">
+        <input id="email" type="email" name="email">
       </div>
       <div>
         <label for="message">Message</label>
         <textarea id="message" name="message"></textarea>
       </div>
       <div>
-        <input type="hidden" name="_subject" value="New submission!">
-        <input type="hidden" name="_next" value="//chisportsguy41.github.io/thanks.html">
-        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="subject" value="New submission!">
       </div>
       <div>
         <input type="submit" value="Send">
@@ -48,16 +55,13 @@
   <script>
     var toggleMenu = document.getElementById('toggleMenu');
     var nav = document.querySelector('nav');
-    toggleMenu.addEventListener(
-      'click',
-      function () {
-        if (nav.style.display == 'block') {
-          nav.style.display = 'none';
-        } else {
-          nav.style.display = 'block';
-        }
+    toggleMenu.addEventListener('click', function () {
+      if (nav.style.display == 'block') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'block';
       }
-    );
+    });
   </script>
 </body>
 
