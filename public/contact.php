@@ -1,56 +1,18 @@
 <?php
 
-class Validate {
-  public $validation = [];
-  public $errors = [];
-  public $data = [];
+require '../core/Caleb/src/validation/validate.php';
 
-  public function notEmpty($value){
-    if(!empty($value)){
-      return true;
-    }
-    return false;
-  }
-
-  public function email($value){
-    if(filter_var($value, FILTER_VALIDATE_EMAIL)){
-      return true;
-    }
-    return false;
-  }
-
-  public function check($data){
-    $this->data = $data;
-
-    foreach(array_keys($this->validation) as $fieldName){
-      $this->rules($fieldName);
-    }
-  }
-
-  public function rules($field){
-    foreach($this->validation[$field] as $rule){
-      if($this->{$rule['rule']}($this->data[$field]) === false){
-        $this->errors[$field] = $rule;
-      }
-    }
-  }
-
-public function error($field){
-  if(!empty($this->errors[$field])){
-    return $this->errors[$field]['message'];
-  }
-
-  return false;
-  }
-
-public function userInput($field){
-  return (!empty($this->data[$field])?$this->data[$field]:null);
-  }
-}
+use Caleb\Validation;
 
 $message = null;
-$valid = new Validate();
-$input = filter_input_array(INPUT_POST);
+$valid = new Caleb\Validation\Validate();
+$args = [
+  'name'=>FILTER_SANITIZE_STRING,
+  'subject'=>FILTER_SANITIZE_STRING,
+  'message'=>FILTER_SANITIZE_STRING,
+  'email'=>FILTER_SANITIZE_EMAIL,
+];
+$input = filter_input_array(INPUT_POST, $args);
 
 if(!empty($input)){
 
@@ -78,7 +40,7 @@ if(!empty($input)){
     //header('Location: thanks.php');
   }else{
     $message = "<div class=\"alert alert-danger\">Your form has errors!</div>";
-}
+  }
 }
 ?>
 
@@ -148,8 +110,8 @@ if(!empty($input)){
 
     <div class="form-group">
       <label for="message">Message</label>
-      <textarea class="form-control" id="message" name="message">
-      <?php echo $valid->userInput('email'); ?></textarea>
+      <textarea class="form-control" id="message"
+      name="message"><?php echo $valid->userInput('message'); ?></textarea>
       <div class="text-danger"><?php echo $valid->error('message');?></div>
     </div>
 
