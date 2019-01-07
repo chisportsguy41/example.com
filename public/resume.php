@@ -2,25 +2,48 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="./dist/css/main.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="./dist/css/main.min.css">
   <title>Caleb Nordgren</title>
 </head>
 
 <body>
-  <header>
-    <span class="logo">My Website</span>
-    <a id="toggleMenu">Menu</a>
-    <nav>
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="resume.php">Resume</a></li>
-        <li><a href="contact.php">Contact</a></li>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Caleb Nordgren</a>
+      <button class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="resume.php">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
+        </li>
       </ul>
-    </nav>
-  </header>
-  <main>
+    </div>
+  </nav>
+  <main class="container">
+    <div class="jumbotron">
     <h1>CALEB NORDGREN</h1>
     <div class="links">
       <a href="linkedin.com/in/chisportsguy41" target="_blank" rel="noopener">LinkedIn</a>
@@ -111,21 +134,17 @@
         <span class="float-left">MicroTrain Technologies -- Chicago, IL</span>
         <span class="float-right">2018-2019</span></p>
     </section>
+    </div>
   </main>
-  <script>
-    var toggleMenu = document.getElementById('toggleMenu');
-    var nav = document.querySelector('nav');
-    toggleMenu.addEventListener(
-      'click',
-      function () {
-        if (nav.style.display == 'block') {
-          nav.style.display = 'none';
-        } else {
-          nav.style.display = 'block';
-        }
-      }
-    );
-  </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
