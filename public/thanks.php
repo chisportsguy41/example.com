@@ -2,10 +2,17 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="./dist/css/main.min.css">
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank you!</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+
+  <!--<link rel="stylesheet" type="text/css" href="./dist/css/main.min.css">-->
+  <title>Caleb Nordgren</title>
 </head>
 
 <body>
@@ -36,6 +43,7 @@
   </div>
 </nav>
 <main class="container">
+  <br><br><br>
   <div class="jumbotron">
     <h1>Thank you for your submission!</h1>
     <p>Someone will be in touch in 3-5 business days, probably.</p>

@@ -40,7 +40,7 @@ if(!empty($input)){
   $valid->check($input);
   if(empty($valid->errors)){
     # Instantiate the client.
-    $mgClient = new Mailgun(MG_KEY);
+    /* $mgClient = new Mailgun(MG_KEY);
     $domain = MG_DOMAIN;
 
     # Make the call to the client.
@@ -50,9 +50,17 @@ if(!empty($input)){
             'subject' => $input['subject'],
             'text'    => $input['message']));
     echo '<br><br><br>';
-    var_dump($result);
-    $message = "<div class=\"alert alert-success\">Your form has been submitted!</div>";
-    //header('Location: thanks.php');
+
+    $r = (json_decode($result));
+    */
+
+    $response = 200;
+
+    if($response === 200) {
+      //$message = "<div class=\"alert alert-success\">Your form has been submitted!</div>";
+      header('Location: thanks.php');
+    }
+
   }else{
     $message = "<div class=\"alert alert-danger\">Your form has errors!</div>";
   }
