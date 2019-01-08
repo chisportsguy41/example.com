@@ -1,8 +1,11 @@
 <?php
 
+require '../config/keys.php';
 require '../core/Caleb/src/validation/validate.php';
+require '../vendor/autoload.php';
 
 use Caleb\Validation;
+use Mailgun\Mailgun;
 
 $message = null;
 $valid = new Caleb\Validation\Validate();
@@ -36,6 +39,18 @@ if(!empty($input)){
 
   $valid->check($input);
   if(empty($valid->errors)){
+    # Instantiate the client.
+    $mgClient = new Mailgun(MG_KEY);
+    $domain = MG_DOMAIN;
+
+    # Make the call to the client.
+    $result = $mgClient->sendMessage("$domain",
+      array('from'    => "{$input['name']} <{$input['email']}>",
+            'to'      => 'Caleb N. <cdn841@gmail.com>',
+            'subject' => $input['subject'],
+            'text'    => $input['message']));
+    echo '<br><br><br>';
+    var_dump($result);
     $message = "<div class=\"alert alert-success\">Your form has been submitted!</div>";
     //header('Location: thanks.php');
   }else{
