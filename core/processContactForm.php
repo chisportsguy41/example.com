@@ -15,7 +15,6 @@ $args = [
 $input = filter_input_array(INPUT_POST, $args);
 
 if(!empty($input)){
-
   $valid->validation = [
     'email'=>[[
       'rule'=>'email',
