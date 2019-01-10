@@ -64,6 +64,9 @@ function active($name) {
         <li class="nav-item">
           <a class="nav-link <?php echo active('/posts/');?>" href="posts">Blog</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link <?php echo active('/users/');?>" href="users">Users</a>
+        </li>
       </ul>
     </div>
   </nav>
