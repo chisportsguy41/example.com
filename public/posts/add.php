@@ -18,6 +18,13 @@ $args = [
 
 $input = filter_input_array(INPUT_POST, $args);
 
+$pick = null;
+$stmt2 = $pdo->prepare("SELECT * FROM users ORDER BY created");
+$stmt2->execute();
+while($row2 = $stmt2->fetch()) {
+  $pick .= "<option value=\"{$row2['id']}\">{$row2['first_name']} {$row2['last_name']}</option>";
+}
+
 if(!empty($input)){
   $input = array_map('trim', $input);
   $input['body'] = cleanHTML($input['body']);
@@ -74,7 +81,7 @@ $content = <<<EOT
 
   <div class="form-group">
     <label for="user_id">User</label>
-    <input id="user_id" name="user_id" type="text" class="form-control">
+    <select id="user_id" name="user_id">{$pick}</select>
   </div>
 
   <div class="form-group">

@@ -11,14 +11,14 @@ $stmt->execute(['id'=>$id]);
 $row = $stmt->fetch();
 
 $list = null;
-$stmt2 = $pdo->prepare("SELECT * FROM posts WHERE user_id=:user_id #ORDER BY modified DATETIME DESC#");
+$stmt2 = $pdo->prepare("SELECT * FROM posts WHERE user_id=:user_id ORDER BY created DESC");
 $stmt2->execute(['user_id'=>$id]);
 while($row2 = $stmt2->fetch()) {
   $list .= "<li><a href=\"posts/view.php?slug={$row2['slug']}\">{$row2['title']}</a></li>";
 }
 
 if(empty($list)) {
-  $list = "<li>No posts created yet.</li>";
+  $list = "<li>This user hasn't written anything yet.</li>";
 }
 
 $meta=[];

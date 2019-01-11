@@ -7,7 +7,7 @@ $meta=[];
 $meta['title']="Users";
 $meta['description']="Users";
 
-$stmt = $pdo->query('SELECT * FROM users');
+$stmt = $pdo->query('SELECT * FROM users ORDER BY last_name');
 $content = "<h1>Users</h1>";
 
 while($row = $stmt->fetch()) {

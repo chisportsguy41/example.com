@@ -1,13 +1,13 @@
 <?php
 
 require '../../config/keys.php';
-
 require '../../core/db_connect.php';
+
 $meta=[];
 $meta['title']="Read my words, please";
 $meta['description']="Blog Posts";
 
-$stmt = $pdo->query('SELECT * FROM posts');
+$stmt = $pdo->query('SELECT * FROM posts ORDER BY created DESC');
 $content = "<h1>Read my words, please</h1>";
 
 while($row = $stmt->fetch()) {
