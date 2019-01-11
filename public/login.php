@@ -1,27 +1,25 @@
 <?php
 require '../core/functions.php';
+require '../config/keys.php';
+require '../core/db_connect.php';
 
 $args = [
   'email'=>FILTER_SANITIZE_EMAIL,
   'password'=>FILTER_UNSAFE_RAW
 ];
 
+//Store POST data $input array
 $input = filter_input_array(INPUT_POST, $args);
 
 if(!empty($input)) {
-  //Store POST data to password and email vars
-  $password = 123;
-  $email = 'your@mom.com';
-
   //DB lookup
-  $user = [
-    'id'=>123,
-    'password'=>123,
-    'email'=>'your@mom.com'
-  ];
+  $sql = 'SELECT * FROM users WHERE email = :email';
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute(['email'=>$input['email']]);
+  $row = $stmt->fetch();
 
-  if(($password===$user['password']) && ($email===$user['email'])) {
-    $_SESSION['user'] = $user;
+  if($input['email'] === $row['email']) {
+    $_SESSION['user'] = $row;
     header('LOCATION: /');
   }
 
