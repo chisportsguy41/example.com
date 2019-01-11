@@ -1,7 +1,6 @@
 <?php
 
 require '../../config/keys.php';
-
 require '../../core/db_connect.php';
 
 $input = filter_input_array(INPUT_GET);
@@ -10,6 +9,10 @@ $stmt = $pdo->prepare("SELECT * FROM posts WHERE slug=:slug");
 $stmt->execute(['slug'=>$slug]);
 $row = $stmt->fetch();
 
+$stmt2 = $pdo->prepare("SELECT * FROM users WHERE id=:user_id");
+$stmt2->execute(['user_id'=>$row['user_id']]);
+$row2 = $stmt2->fetch();
+
 $meta=[];
 $meta['title']=$row['title'];
 $meta['description']=$row['meta_description'];
@@ -17,6 +20,8 @@ $meta['keywords']=$row['meta_keywords'];
 
 $content = <<<EOT
 <h1>{$row['title']}</h1>
+<em>By {$row2['first_name']} {$row2['last_name']}</em>
+<hr>
 {$row['body']}
 
 <hr>
