@@ -1,7 +1,8 @@
 <?php
+require '../../core/functions.php';
+require '../../core/session.php';
 require '../../config/keys.php';
 require '../../core/db_connect.php';
-require '../../core/functions.php';
 
 $meta=[];
 $meta['title']="Add New User";

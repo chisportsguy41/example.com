@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Strips HTML tags that have not been whitelisted
  * @var string $html
