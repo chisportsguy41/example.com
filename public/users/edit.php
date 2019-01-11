@@ -24,7 +24,7 @@ $args = [
   'id'=>FILTER_SANITIZE_STRING,
   'first_name'=>FILTER_SANITIZE_STRING,
   'last_name'=>FILTER_SANITIZE_STRING,
-  'email'=>FILTER_UNSAFE_RAW
+  'email'=>FILTER_SANITIZE_EMAIL
 ];
 
 $input = filter_input_array(INPUT_POST, $args);
