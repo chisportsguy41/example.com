@@ -1,5 +1,4 @@
 <?php
-
 require 'Caleb/src/validation/validate.php';
 
 use Caleb\Validation;
@@ -35,7 +34,23 @@ if(!empty($input)){
 
   $valid->check($input);
   if(empty($valid->errors)){
-    header('Location: thanks.php');
+    $sql = 'INSERT INTO
+      webforms
+    SET
+      id=uuid(),
+      name=:name,
+      message=:message,
+      email=:email';
+    $stmt = $pdo->prepare($sql);
+    if($stmt->execute([
+      $input['name'],
+      $input['message'],
+      $input['email']
+    ])){
+      header('Location: thanks.php');
+    } else {
+      $message = 'Something bad happened';
+    }
   } else {
     $message = "<div class=\"alert alert-danger\">Your form has errors!</div>";
   }

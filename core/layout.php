@@ -67,6 +67,9 @@ function active($name) {
         <li class="nav-item">
           <a class="nav-link <?php echo active('/users/');?>" href="users">Users</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link <?php echo active('/forms/');?>" href="forms">Emails</a>
+        </li>
         <?php if(!empty($_SESSION['user']['id'])):?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
