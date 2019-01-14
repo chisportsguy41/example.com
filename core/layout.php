@@ -67,11 +67,19 @@ function active($name) {
         <li class="nav-item">
           <a class="nav-link <?php echo active('/users/');?>" href="users">Users</a>
         </li>
-        <li>
         <?php if(!empty($_SESSION['user']['id'])):?>
-          <a class="nav-link" href="logout.php">Logout</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php echo $_SESSION['user']['first_name'] . ' ' . $_SESSION['user']['last_name']?></a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="users/view.php?id=<?php echo $_SESSION['user']['id']?>">Profile</a>
+                <a class="dropdown-item" href="posts/add.php">New Post</a>
+                <a class="dropdown-item" href="logout.php">Log Out</a>
+              </div>
         <?php else: ?>
-        <a class="nav-link <?php echo active('/login.php'); ?>" href="login.php">Login</a>
+          <li class="nav-item">
+            <a class="nav-link <?php echo active('/login.php'); ?>" href="login.php">Login</a>
         <?php endif;?>
         </li>
       </ul>

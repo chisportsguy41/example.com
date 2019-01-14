@@ -35,8 +35,8 @@ $content = <<<EOT
 </ul>
 <hr>
 <div>
-  <a class="btn btn-link" href="users/edit.php?id={$row['id']}">Edit</a>
-  <a class="btn btn-link text-danger" href="users/delete.php?id={$row['id']}">Delete</a>
+  <a class="btn btn-link" href="users/edit.php?id={$row['id']}">Edit User</a>
+  <a class="btn btn-link text-danger" href="users/delete.php?id={$row['id']}">Delete User</a>
 </div>
 EOT;
 

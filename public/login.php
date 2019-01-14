@@ -17,10 +17,14 @@ if(!empty($input)) {
   $stmt = $pdo->prepare($sql);
   $stmt->execute(['email'=>$input['email']]);
   $row = $stmt->fetch();
+  $verify = password_verify($input['password'], $row['password']);
 
-  if($input['email'] === $row['email']) {
+  if(($input['email'] === $row['email']) && $verify === true) {
     $_SESSION['user'] = $row;
-    header('LOCATION: /');
+    $args = ['goto'=>FILTER_SANITIZE_STRING];
+    $get = filter_input_array(INPUT_GET, $args);
+    $goto = !empty($get['goto'])?$get['goto']:'/';
+    header('LOCATION: ' . $goto);
   }
 
 }

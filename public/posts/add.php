@@ -13,17 +13,11 @@ $args = [
   'meta_description'=>FILTER_SANITIZE_STRING,
   'meta_keywords'=>FILTER_SANITIZE_STRING,
   'body'=>FILTER_UNSAFE_RAW,
-  'user_id'=>FILTER_UNSAFE_RAW
 ];
 
 $input = filter_input_array(INPUT_POST, $args);
 
-$pick = null;
-$stmt2 = $pdo->prepare("SELECT * FROM users ORDER BY created");
-$stmt2->execute();
-while($row2 = $stmt2->fetch()) {
-  $pick .= "<option value=\"{$row2['id']}\">{$row2['first_name']} {$row2['last_name']}</option>";
-}
+$user_id = $_SESSION['user']['id'];
 
 if(!empty($input)){
   $input = array_map('trim', $input);
@@ -45,7 +39,7 @@ if(!empty($input)){
     $input['body'],
     $input['meta_keywords'],
     $input['meta_description'],
-    $input['user_id']
+    $user_id
   ])){
     header('LOCATION:/posts/view.php?slug=' . $slug);
   }else{
@@ -77,11 +71,6 @@ $content = <<<EOT
       <label for="meta_keywords">Keywords</label>
       <textarea id="meta_keywords" name="meta_keywords" rows="2" class="form-control"></textarea>
     </div>
-  </div>
-
-  <div class="form-group">
-    <label for="user_id">User</label>
-    <select id="user_id" name="user_id">{$pick}</select>
   </div>
 
   <div class="form-group">

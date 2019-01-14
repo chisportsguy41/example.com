@@ -25,26 +25,34 @@ $args = [
   'id'=>FILTER_SANITIZE_STRING,
   'first_name'=>FILTER_SANITIZE_STRING,
   'last_name'=>FILTER_SANITIZE_STRING,
-  'email'=>FILTER_SANITIZE_EMAIL
+  'email'=>FILTER_SANITIZE_EMAIL,
+  'password'=>FILTER_UNSAFE_RAW
 ];
 
 $input = filter_input_array(INPUT_POST, $args);
 
 if(!empty($input)){
   $input = array_map('trim', $input);
-  $sql = 'UPDATE
+
+  $hashSQL = false;
+  if(!empty($input['password'])){
+    $password = password_hash($input['password'], PASSWORD_BCRYPT, ['cost'=>14]);
+    $hashSQL = ",password='{$password}'";
+  }
+  $sql = "UPDATE
       users
     SET
       first_name=:first_name,
       last_name=:last_name,
       email=:email
+      {$hashSQL}
     WHERE
-      id=:id';
+      id=:id";
   if($pdo->prepare($sql)->execute([
     'first_name'=>$input['first_name'],
     'last_name'=>$input['last_name'],
     'email'=>$input['email'],
-    'id'=>$input['id']
+    'id'=>$get['id']
   ])){
     header('LOCATION:/users/view.php?id=' . $row['id']);
   }else{
@@ -70,6 +78,11 @@ $content = <<<EOT
 <div class="form-group">
   <label for="email">Email</label>
   <input id="email" value="{$row['email']}" name="email" type="text" class="form-control"></input>
+</div>
+
+<div class="form-group">
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password" class="form-control"></input>
 </div>
 
 <div class="form-group">
