@@ -22,6 +22,7 @@ $content = <<<EOT
 
 <hr>
 <div>
+  <a class="btn btn-link" href="mailto:{$row['email']}">Respond</a>
   <a class="btn btn-link text-danger" href="forms/delete.php?id={$row['id']}">Delete</a>
 </div>
 EOT;

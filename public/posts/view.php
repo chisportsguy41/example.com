@@ -17,12 +17,12 @@ $meta=[];
 $meta['title']=$row['title'];
 $meta['description']=$row['meta_description'];
 $meta['keywords']=$row['meta_keywords'];
-
+$body = nl2br($row['body']);
 $content = <<<EOT
 <h1>{$row['title']}</h1>
 <a href="users/view.php?id={$row2['id']}"><em>By {$row2['first_name']} {$row2['last_name']}</em></a>
 <hr>
-{$row['body']}
+{$body}
 
 <hr>
 <div>

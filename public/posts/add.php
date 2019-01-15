@@ -34,12 +34,12 @@ if(!empty($input)){
       meta_description=:meta_description,
       user_id=:user_id';
   if($pdo->prepare($sql)->execute([
-    $input['title'],
-    $slug,
-    $input['body'],
-    $input['meta_keywords'],
-    $input['meta_description'],
-    $user_id
+    'title'=>$input['title'],
+    'slug'=>$slug,
+    'body'=>$input['body'],
+    'meta_keywords'=>$input['meta_keywords'],
+    'meta_description'=>$input['meta_description'],
+    'user_id'=>$user_id
   ])){
     header('LOCATION:/posts/view.php?slug=' . $slug);
   }else{
